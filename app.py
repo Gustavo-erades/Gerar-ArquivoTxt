@@ -11,8 +11,10 @@ def excluir_aluno():
     f.close()
 
 def editar_aluno():
-    with open ("Alunos.txt","r+") as f:
-        print("Alunos já cadastrados: \n"+f.read())
+    with open ("Alunos.txt","r") as f_ler:
+        print("Alunos já cadastrados: \n"+f_ler.read())
+    f_ler.close()
+    with open ("Alunos.txt","w+") as f:
         nome=str(input("Nome do aluno: "))
         mat=int(input("Número de Matrícula do(a) %s: "%nome))
         f.write(nome+"-"+str(mat)+"\n")
