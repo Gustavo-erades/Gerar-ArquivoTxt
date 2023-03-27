@@ -29,7 +29,7 @@ def menu():
     print("**********************")
     print("* 1 -> Inserir aluno *")
     print("* 2 -> Excluir aluno *")
-    print("* 3 -> Editar aluno  *")
+    print("* 3 -> Editar alunos *")
     print("* 4 -> Listar alunos *")
     print("* 5 ->   Encerrar    *")
     print("**********************")
