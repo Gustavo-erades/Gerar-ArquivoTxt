@@ -1,4 +1,5 @@
 def inserir_aluno():
+    print("\n-- Inserção de aluno --\n")
     nome=str(input("Nome do aluno: "))
     mat=int(input("Número de Matrícula do(a) %s: "%nome))
     with open ("Alunos.txt","a+") as f:
@@ -6,21 +7,38 @@ def inserir_aluno():
     f.close()
     
 def excluir_aluno():
-    with open ("Alunos.txt","w+") as f:
-        f.write("")
-    f.close()
+    print("\n-- Deleção de aluno --\n")
+    antigo=input("Nome do aluno a ser deletado: ")
+    with open ("Alunos.txt","r+") as f:
+        linhas=f.readlines()
+        f.seek(0)
+        for l in linhas:
+            if(l.startswith(antigo)):
+                f.write("")
+            else:
+                f.write(l)
+        f.truncate()
+    print("Deleção feita com sucesso :)")
 
 def editar_aluno():
-    with open ("Alunos.txt","r") as f_ler:
-        print("Alunos já cadastrados: \n"+f_ler.read())
-    f_ler.close()
-    with open ("Alunos.txt","w+") as f:
-        nome=str(input("Nome do aluno: "))
-        mat=int(input("Número de Matrícula do(a) %s: "%nome))
-        f.write(nome+"-"+str(mat)+"\n")
-    f.close()
+    print("\n-- Edição de aluno --\n")
+    antigo=input("Nome do aluno para edição: ")
+    nome=str(input("Nome do novo aluno: "))
+    mat=int(input("Número de Matrícula do(a) %s: "%nome))
+    atualizacao= f"{nome}-{mat}\n"
+    with open ("Alunos.txt","r+") as f:
+        linhas=f.readlines()
+        f.seek(0)
+        for l in linhas:
+            if(l.startswith(antigo)):
+                f.write(atualizacao)
+            else:
+                f.write(l)
+        f.truncate()
+    print("Registro atualizado com sucesso!")
 
 def listar_alunos():
+    print("\n-- Listagem de aluno --\n")
     with open ("Alunos.txt","r",encoding="UTF-8") as f:
         print(f.read())
     f.close()
@@ -33,6 +51,7 @@ def menu():
     print("* 4 -> Listar alunos *")
     print("* 5 ->   Encerrar    *")
     print("**********************")
+
 def logica():    
     match opcao:
         case 1:
