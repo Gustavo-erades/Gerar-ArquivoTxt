@@ -5,4 +5,3 @@ Atividade da matéria de Aplicações Rápidas com Python.
 ## Sobre os arquivos:
 ### Alunos.txt -> Exemplo de como fica o arquivo de texto;
 ### App.py -> Script do programa;
-### Appy.exe -> Programa Executável, cria o arquivo de texto no mesmo diretório em que está.
